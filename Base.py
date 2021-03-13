@@ -1,14 +1,16 @@
 from itertools import filterfalse
 
+from database.Database import Database
+
 
 class Base:
-    def __init__(self, db_path):
+    def __init__(self, name):
         self.resultado = []
-        self.db = []
-        linhas = open(db_path, 'r').readlines()
-        for linha in linhas:
-            self.db.append(linha.replace('\n', '').split('-'))
-        print(self.db)
+        db = Database()
+        self.db = db.get(name)
+        if not len(self.db):
+            print(f'Falha ao carregar a tabela: {name}')
+            exit(1)
 
     # imprime a quantidade de resultados cadastrados
     def tamanho(self):

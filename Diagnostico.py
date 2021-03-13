@@ -3,7 +3,7 @@ from Base import Base
 
 class Diagnostico(Base):
     def __init__(self):
-        super().__init__('db.txt')
+        super().__init__('pet')
         self.resultado = ['cansado', 'estressado', 'deprimido', 'faminto', 'saudavel']
 
 
